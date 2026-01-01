@@ -1,0 +1,654 @@
+# Cross-Platform optimized:
+# Python, C extensions, Docker, CI/CD, macOS, Linux, Windows, and tooling.
+
+# ✅ macOS system files
+# ✅ IDEs and Editors
+# ✅ Python (pyenv, Django, Flask, Streamlit)
+# ✅ JavaScript/React
+# ✅ Docker #
+# ✅ Kubernetes (K8s/K3s)
+# ✅ Terraform
+# ✅ Ansible
+# ✅ SSH keys and sensitive security files
+# ✅ CI/CD tools (GitHub Actions, Jenkins, etc.)
+# ✅ 🧪 AI & Automation Tools
+# ✅ Machine Learning / Data
+# ✅ Documentation Tools:
+#     Hydra / Mkdocs (Markdown Site-) / Sphinx (Python Docs-) Generators
+#########################################################################
+# 🍏 macOS System Files
+# ----------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+*.dylib
+
+########################################
+# 🪟 Windows System Files
+# ------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.dll
+
+########################################
+# 🐧 Linux/Unix Shared Objects
+# -----------------------------
+*.so
+
+########################################
+# 🧠 IDEs and Editors
+# --------------------
+
+# IntelliJ/Eclipse
+.settings
+
+# JetBrains
+.idea/
+*.iml
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+########################################
+# 📖 Documentation Generators
+########################################
+
+# Hydra (config framework)
+# Hydra often creates multirun output directories
+multirun/
+outputs/
+hydra.yaml
+hydra.log
+
+# MkDocs (Markdown site generator)
+site/
+*.mkdocs.yml
+mkdocs.yml.bak
+# Optional: ignore local preview cache
+.cache/
+.mkdtmp/
+
+# Sphinx (Python documentation generator)
+docs/_build/
+build/
+*.doctree
+*.pickle
+*.inv
+*.fjson
+#*.js
+#*.css
+*.png
+*.jpg
+*.gif
+*.svg
+*.pdf
+*.epub
+
+# 🧠 Nano (Terminal Editor)
+*~
+*.bak
+*.tmp
+*.old
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# VS Code (keep shared settings if checked in)
+.vscode/
+.vscode/*
+!.vscode/README.md
+!.vscode/recommended-settings.json
+!.vscode/recommended-tasks.json
+!.vscode/recommended-launch.json
+!.vscode/extensions.json
+
+
+########################################
+# 🐍 Python & Pyenv
+# ------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+.python-version
+# PEP 582; used by github.com/pdm-project/pdm
+__pypackages__/
+.Python
+
+# Packaging / build artifacts
+dist/
+downloads/
+develop-eggs/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+*.egg
+MANIFEST
+.installed.cfg
+
+# PyInstaller
+*.manifest
+
+# Installer logs
+pip-log.txt
+pip-delete-this-arg.txt
+pip-delete-this-directory.txt
+
+
+########################################
+# 🧪 Testing / coverage / Logs & Reports
+# ------------------------
+htmlcov/
+.tox/
+.nox/
+*.cover
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+& Hypothesis
+.hypothesis/
+
+# Type checkers / caches  & Linters
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+.pypirc
+.pytest_cache/
+
+# Virtual Environments
+.env
+.envrc
+.venv
+.virtualenv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# 🧪 uv virtual environments and Python version pinning
+.uv/
+
+# 📦 uv lockfiles and dependency metadata
+uv.lock
+uv.config.json
+uv.schema.json
+
+# 📁 uv global cache (if used outside project root)
+.uv_cache/
+.uv_cache/*
+
+# Cython debug
+cython_debug/
+
+# C Extensions
+*.spec
+
+# SageMath parsed files
+*.sage.py
+
+########################################
+# 🔥 Flask, Django, Streamlit
+# ----------------------------
+.flaskenv
+instance/
+.webassets-cache
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+*.db
+*.db-journal
+media/
+staticfiles/
+
+# Scrapy stuff:
+.scrapy
+
+########################################
+# 📚 Documentation & Notebooks
+# -----------------------------
+.ipynb_checkpoints
+.pybuilder/
+target/
+.site
+
+########################################
+# 🌍 Translations
+# ----------------
+*.mo
+*.pot
+
+########################################
+# 🧬 Dependency Managers
+# -----------------------
+# pipenv
+#Pipfile.lock
+
+# poetry
+#poetry.lock
+#poetry.toml
+
+# pdm
+#pdm.lock
+#pdm.toml
+.pdm-python
+.pdm-build/
+
+# pixi
+#pixi.lock
+.pixi
+
+########################################
+# 🧵 Task Queues (Celery)
+# ------------------------
+celerybeat-schedule
+celerybeat.pid
+
+########################################
+# 🐙 GitHub / CI/CD / Jenkins
+# ----------------------------
+.github/
+.github/workflows/
+.gitlab-ci.yml
+.circleci/
+.jenkins/
+
+########################################
+# 🐳 Docker
+# ----------
+Dockerfile
+Dockerfile.bak
+docker-compose.yml
+docker-compose.yml.bak
+.dockerignore
+**/docker-compose.override.yml
+**/docker-compose.dev.yml
+**/docker-compose.test.yml
+**/docker-compose.stage.yml
+**/docker-compose.prod.yml
+
+########################################
+# ☸️ Kubernetes / K3s / K8s
+# --------------------------
+# *.yaml
+# *.yml
+.kube/
+*.kube/
+*.helm/
+helm-chart/
+charts/
+# Note: do not ignore all YAMLs by default unless generated
+*.generated.yaml
+
+########################################
+# 🌍 Terraform
+# -------------
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+########################################
+# 🛠️ Ansible
+# -----------
+*.retry
+*.cfg
+inventory.ini
+group_vars/
+host_vars/
+vault.yml
+
+########################################
+# 🔐 SSH / Security / Encryption / Secrets / Tokens
+# -------------------------------------------------
+*.pem
+*.key
+*.crt
+*.csr
+*.gpg
+*.asc
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+known_hosts
+authorized_keys
+secrets.*
+secret.*
+*.enc
+*.vault
+*.sops.yaml
+
+########################################
+# ⚛️ Node.js / React / JavaScript
+# -------------------------------
+node_modules/
+.npm
+jspm_packages/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# Lockfiles: include or ignore per project policy (left commented)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+###############################################
+# 🌐 Modern Web / Frontend Tooling
+# ---------------------------------------------
+.next/                  # Next.js build output
+.nuxt/                  # Nuxt.js build output
+.expo/                  # Expo React Native cache
+.parcel-cache/          # Parcel bundler cache
+.vercel/                # Vercel deployment metadata
+
+########################################
+# 🧾 TypeScript
+# --------------
+*.tsbuildinfo
+
+########################################
+# 🎨 CSS / Sass / Less
+# ---------------------
+*.css.map
+.sass-cache/
+*.scssc
+
+########################################
+# 🌐 HTML / Web
+# --------------
+#*.html
+*.htm
+*.xhtml
+*.webmanifest
+
+########################################
+# 📦 General Web Assets / Archives / General binary blobs
+# -------------------------------------------------------
+*.map
+*.lock
+*.gz
+*.zip
+*.tar
+*.tgz
+*.rar
+*.7z
+*.temp
+
+########################################
+# 🧩 Miscellaneous
+# -----------------
+*.conf
+*.ini
+*.orig
+*.rej
+*.backup
+
+########################################
+# Logs, runtime data, PIDs
+# -----------------
+logs
+*.log
+*.pid
+pids
+*.seed
+*.pid.lock
+
+###############################################
+# 🧠 Machine Learning / Colab Artifacts / Data
+# ---------------------------------------------
+# Data dirs and common data files
+data/
+datasets/
+raw_data/
+processed_data/
+workspace/
+references/
+models/
+checkpoints/
+logs/
+results/
+predictions/
+tensorboard/
+wandb/
+mlruns/                 # MLflow experiment tracking
+test_tube_logs/
+test_tube_data/
+test_tube_exp/
+lightning_logs/
+model_weights/
+processed/
+raw/
+MNIST
+.dvc/                   # Data Version Control metadata
+
+# General AI model artifacts and files
+*.gguf
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.tflite
+*.pb
+*.mlmodel
+*.joblib
+*.pkl
+*.model
+*.weights
+
+############################################################
+# 📚 Jupyter Notebooks / JupyterLab / checkpoints / IPython
+# ----------------------------------------------------------
+*.ipynb
+.ipynb_checkpoints/   # Notebook checkpoint autosaves
+*.ipynb.tmp           # Temporary notebook files
+*.ipynb.bak           # Backup notebook files
+*.ipynb.save          # Saved temp notebook files
+*.nbconvert.ipynb     # Exported notebook conversions
+.jupyter/             # Jupyter config and runtime files
+.jupyterlab/          # JupyterLab workspace settings
+.lab/                 # JupyterLab hidden workspace files
+.jupyterlab-settings/ # JupyterLab user settings
+profile_default/
+ipython_config.py
+
+########################################
+# 🧪 Google Colab
+# -------------------------------
+.colab/               # Colab-specific metadata
+*.colab.ipynb         # Colab notebook variants
+*.ipynb.json          # Colab JSON metadata
+*.ipynb_checkpoints/  # Colab autosave checkpoints
+
+########################################
+# 📦 Notebook Outputs / Data
+# -------------------------------
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.hdf5
+*.h5
+*.npy
+*.npz
+*.parquet
+*.feather
+*.arrow
+*.orc
+*.sav
+*.dta
+*.mat
+*.rda
+*.rdata
+*.sas7bdat
+*.sqlite
+
+########################################
+# 📊 Notebook Logs / Runtime
+# -------------------------------
+*.out
+*.err
+*.swo
+*.swn
+
+########################################
+# 🧪 AI & Automation Tools
+# -------------------------
+
+# 	✅	Kilo (minimal terminal editor — no config files, but backup patterns covered)
+
+# 	✅	Code Copilot (GitHub Copilot — no local artifacts, but IDEs may cache completions)
+
+# 	✅	Anthropic (Claude — cloud-based, no local files unless manually cached)
+
+# 	✅	LangGraph (LangChain extension — may generate .langgraph/)
+
+# 	✅	OpenCV (AI/vision library — compiled artifacts and cache)
+
+# 	✅	Warp IDE (terminal IDE — may generate .warp/ config)
+
+# Abstra (AI-powered automation framework)
+.abstra/
+
+# Cursor (AI-powered code editor)
+.cursorignore
+.cursorindexingignore
+
+# Marimo (Python notebooks with reactive UI)
+/marimo/_static/
+marimo/_lsp/
+__marimo__/
+
+# Ollama (local LLM runner)
+.ollama/
+ollama.yaml
+ollama-models/
+ollama-cache/
+
+# OpenWebUI (Ollama-compatible local UI)
+.openwebui/
+openwebui.db
+openwebui-config.yaml
+
+# LM Studio (local LLM runner with UI)
+.lmstudio/
+lmstudio.db
+lmstudio-config.json
+
+# GPT4All (local LLM runner)
+gpt4all-chat/
+gpt4all-models/
+gpt4all-config.json
+
+# KoboldAI / Text Generation WebUI
+koboldai/
+text-generation-webui/
+text-generation-webui/models/
+text-generation-webui/logs/
+
+# AutoGPT / Agent tools
+autogpt/
+autogpt-logs/
+autogpt-config.json
+
+# LangChain / LlamaIndex / LangGraph
+.langchain/
+.llamaindex/
+.langgraph/
+langchain.db
+llamaindex.db
+
+# Warp IDE (AI-powered terminal)
+.warp/
+
+# OpenCV (AI/vision library)
+*.cache
+
+# Kilo (minimal terminal editor)
+*~
+*.save
+
+# GitHub Copilot / Anthropic Claude
+# No local artifacts — completions cached via IDEs (e.g., VS Code, JetBrains)
+
+# Vault Onboarding Suite
+vaults/*.pem
+vaults/*.log
+vaults/openssl-error.log
+vaults/diagnostic.log
+vaults/ssh-setup.log
+.bw_session
+.bw_cache
+tools/
+bin/*-wrapper.sh
+.sqlite3_alias
+
+
+########################################
+# 🛡️ .gitignore for Bitwarden Users
+# -------------------------
+# Bitwarden CLI session files (contain sensitive tokens)
+bw-session.json
+bw-session.txt
+bw-session-*
+
+# Bitwarden CLI cache
+.bwcache/
+.bwdata/
+
+# Bitwarden GUI logs and configs
+bitwarden.log
+bitwarden-debug.log
+bitwarden-error.log
+bitwarden-config.json
+bitwarden-settings.json
+
+# Vault export files (contain secrets, never commit!)
+bw-export.json
+bw-export.csv
+
+# Build artifacts:
+.codio
+.codio/
+.guides/
+
+########################################
+# End of combined .gitignore
+########################################
