@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+
     <style>
       .book-grid {
         display: flex;
@@ -13,14 +14,45 @@
       .book-card {
         border: 1px solid #ccc;
         padding: 8px;
-        width: 200px;
+        width: 220px;
       }
       .book-card img {
         max-width: 100%;
         height: auto;
       }
+
+      #modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+        z-index: 9998;
+      }
+
+      #delete-modal {
+        display: none;
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border: 2px solid #444;
+        padding: 20px;
+        width: 300px;
+        z-index: 9999;
+      }
+
+      #delete-modal button {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
     </style>
   </head>
+
   <body>
 
     <nav>
@@ -31,18 +63,26 @@
 
     <h2>Library</h2>
 
+    {% if message %}
+      <p><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    <form method="GET" action="{{ url_for('home') }}">
+      <label for="search">Search:</label>
+      <input type="text" id="search" name="search" value="{{ search or '' }}">
+      <button type="submit">Search</button>
+    </form>
+
+    {% if no_results %}
+      <p>No books match your search criteria.</p>
+    {% endif %}
+
     <form method="GET" action="{{ url_for('home') }}">
       <label for="sort">Sort by:</label>
       <select id="sort" name="sort">
-        <option value="title" {% if sort == "title" %}selected{% endif %}>
-          Title
-        </option>
-        <option value="author" {% if sort == "author" %}selected{% endif %}>
-          Author
-        </option>
-        <option value="year" {% if sort == "year" %}selected{% endif %}>
-          Year
-        </option>
+        <option value="title" {% if sort == "title" %}selected{% endif %}>Title</option>
+        <option value="author" {% if sort == "author" %}selected{% endif %}>Author</option>
+        <option value="year" {% if sort == "year" %}selected{% endif %}>Year</option>
       </select>
       <button type="submit">Apply</button>
     </form>
@@ -50,32 +90,47 @@
     <hr>
 
     {% if books|length == 0 %}
-      <p>No books in the library yet. Try seeding data at <code>/seed</code> or
-      add some via "Add Book".</p>
+      <p>No books in the library yet. Try seeding data at <code>/seed</code>.</p>
     {% else %}
       <div class="book-grid">
         {% for book in books %}
           <div class="book-card">
-            <!-- 1. Title + author + year -->
-            <div>
-              {{ book.title }} — {{ book.author.name }}
-              ({{ book.publication_year }})
-            </div>
-            <!-- 2. Cover image -->
-            <div>
-              <img
-                src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg"
-                alt="Cover for {{ book.title }}"
-              >
-            </div>
-            <!-- 3. ISBN -->
-            <div>
-              ISBN: {{ book.isbn }}
-            </div>
+            <strong>{{ book.title }}</strong><br>
+            {{ book.author.name }} ({{ book.publication_year }})<br>
+
+            <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg">
+
+            <div>ISBN: {{ book.isbn }}</div>
+
+            <button onclick="openDeleteModal({{ book.id }}, {{ book.author.id }}, {{ book.author.books|length }})">
+              Delete Options
+            </button>
           </div>
         {% endfor %}
       </div>
     {% endif %}
+
+    <div id="modal-overlay" onclick="closeDeleteModal()"></div>
+
+    <div id="delete-modal">
+      <h3>Delete Options</h3>
+
+      <form id="delete-book-form" method="POST">
+        <button type="submit">Delete single Book</button>
+      </form>
+
+      <form id="delete-book-author-form" method="POST">
+        <button type="submit">Delete single Book and Author</button>
+      </form>
+
+      <form id="delete-author-form" method="POST">
+        <button type="submit">Delete all Books and Author</button>
+      </form>
+
+      <button onclick="closeDeleteModal()">Cancel</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 
   </body>
 </html>

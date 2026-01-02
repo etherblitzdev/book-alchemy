@@ -16,20 +16,41 @@
     <h2>Add Author</h2>
 
     {% if message %}
-      <p>{{ message }}</p>
+      <p><strong>{{ message }}</strong></p>
     {% endif %}
 
-    <form action="{{ url_for('add_author') }}" method="POST">
-      <label for="name">Author Name:</label>
-      <input type="text" id="name" name="name" required><br><br>
+    <form method="POST" action="{{ url_for('add_author') }}">
+      <div>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Author name"
+        >
+      </div>
 
-      <label for="birthdate">Birthdate:</label>
-      <input type="date" id="birthdate" name="birthdate" required><br><br>
+      <div>
+        <label for="birthdate">Birth Date:</label>
+        <input
+          type="date"
+          id="birthdate"
+          name="birthdate"
+          required
+        >
+      </div>
 
-      <label for="date_of_death">Date of Death:</label>
-      <input type="date" id="date_of_death" name="date_of_death"><br><br>
+      <div>
+        <label for="date_of_death">Date of Death (optional):</label>
+        <input
+          type="date"
+          id="date_of_death"
+          name="date_of_death"
+        >
+      </div>
 
-      <input type="submit" value="Add Author">
+      <button type="submit">Add Author</button>
     </form>
 
   </body>
