@@ -3,14 +3,79 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Library</title>
+    <style>
+      .book-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .book-card {
+        border: 1px solid #ccc;
+        padding: 8px;
+        width: 200px;
+      }
+      .book-card img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
   </head>
   <body>
 
-    {% for book in books %}
-    <div> <h3>{{ book.title }}</h3>
-    </div>
-    {% endfor %}
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a> |
+      <a href="{{ url_for('add_author') }}">Add Author</a> |
+      <a href="{{ url_for('add_book') }}">Add Book</a>
+    </nav>
+
+    <h2>Library</h2>
+
+    <form method="GET" action="{{ url_for('home') }}">
+      <label for="sort">Sort by:</label>
+      <select id="sort" name="sort">
+        <option value="title" {% if sort == "title" %}selected{% endif %}>
+          Title
+        </option>
+        <option value="author" {% if sort == "author" %}selected{% endif %}>
+          Author
+        </option>
+        <option value="year" {% if sort == "year" %}selected{% endif %}>
+          Year
+        </option>
+      </select>
+      <button type="submit">Apply</button>
+    </form>
+
+    <hr>
+
+    {% if books|length == 0 %}
+      <p>No books in the library yet. Try seeding data at <code>/seed</code> or
+      add some via "Add Book".</p>
+    {% else %}
+      <div class="book-grid">
+        {% for book in books %}
+          <div class="book-card">
+            <!-- 1. Title + author + year -->
+            <div>
+              {{ book.title }} — {{ book.author.name }}
+              ({{ book.publication_year }})
+            </div>
+            <!-- 2. Cover image -->
+            <div>
+              <img
+                src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg"
+                alt="Cover for {{ book.title }}"
+              >
+            </div>
+            <!-- 3. ISBN -->
+            <div>
+              ISBN: {{ book.isbn }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
 
   </body>
 </html>
